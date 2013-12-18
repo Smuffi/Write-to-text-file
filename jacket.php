@@ -8,6 +8,7 @@
 		if ($_POST['number'] > 0) {
 			echo "<p>Order accepted!</p>";
 
+			// Get the values from the form and put them into variables.
 			$jacketType = $_POST['type'];
 			$Type = $jacketType . "-jacket";
 			$Value = $_POST['value'];
@@ -15,6 +16,7 @@
 			$Color = "";
 			$Size = $_POST['size'];
 
+			// write to the file with the variables initiated above.
 			if (file_exists("order.txt")) {
 				$file = fopen("order.txt","a")or die("Can't open file.");
 				fwrite($file, "\n$Type\n$Value\n$nr\n$Color\n$Size");
@@ -32,6 +34,7 @@
 		return;
 	}
 
+	// Toggle between which picture to show depending on what jacket type chosen in "jackets.php".
 	if ($jacketType == "Rainbow Dash") {
 		echo "<img src=\"pony-jacket.jpg\" height=\"150px\" width=\"150px\" />";
 	}elseif ($jacketType == "Wonderbolts") {
