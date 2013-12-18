@@ -8,12 +8,14 @@
 			if ($_POST['number'] > 0) {
 				echo "<p>Order accepted!</p>";
 
+				// Get the values from the form and put them into variables.
 				$Type = "Socks";
 				$Value = $_POST['value'];
 				$nr = $_POST['number'];
 				$Color = $_POST['color'];
 				$Size = $_POST['size'];
 
+				// Take the variables and put them into order.txt.
 				if (file_exists("order.txt")) {
 					$file = fopen("order.txt","a")or die("Can't open file.");
 					fwrite($file, "\n$Type\n$Value\n$nr\n$Color\n$Size");
