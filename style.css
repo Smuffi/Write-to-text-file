@@ -1,0 +1,50 @@
+#wrapper {
+	width: 1024px;
+	background: #d1d1d1;
+	height: 800px;
+	margin: 0 auto;
+}
+
+#content {
+	width: 724px;
+	float: left;
+}
+
+#sidebar {
+	width: 300px;
+	float: left;
+}
+
+nav {
+	background: #a1a1a1;
+	width: 100%;
+	overflow: hidden;
+}
+
+nav li {
+	display: block;
+	float: left;
+}
+
+nav li a {
+	display: block;
+	padding: 20px;
+	background: #333;
+	color: #fff;
+	margin-right: 20px;
+}
+
+nav li a:hover {
+	background: #777;
+}
+
+.hidden {
+	border: none;
+	background: none;
+	font-size: 30px;
+}
+
+.price {
+	color: red;
+	font-size: 20px;
+}
