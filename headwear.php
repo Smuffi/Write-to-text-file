@@ -8,6 +8,7 @@
 			if ($_POST['number'] > 0) {
 				echo "<p>Order accepted!</p>";
 
+				// get the values from the form and put them into variables.
 				$headwearType = $_POST['type'];
 				$Type = $headwearType;
 				$Value = $_POST['value'];
@@ -16,14 +17,17 @@
 				$Size = $_POST['size'];
 
 				if (file_exists("order.txt")) {
+					// open the file and write to it using the variables initiated above.
 					$file = fopen("order.txt","a")or die("Can't open file.");
 					fwrite($file, "\n$Type\n$Value\n$nr\n$Color\n$Size");
 				}else{
+					// open the file and write to it using the variables initiated above.
 					$file = fopen("order.txt","a")or die("Can't open file.");
 					fwrite($file, "$Type\n$Value\n$nr\n$Color\n$Size");
 				}
 				fclose($file);
 			}else{
+				// If for some reason the user wanted to buy 0 or a negative amount.
 				echo "You need to order at least 1.";
 			}
 			
@@ -33,6 +37,7 @@
 			return;
 		}
 
+		// Toggle which picture to use depending on the hat the user wants.
 		if ($headwearType == "Tophat") {
 			echo "<img src=\"tophat.jpg\" height=\"150px\" width=\"150px\" />";
 		}elseif ($headwearType == "Cap") {
@@ -49,31 +54,32 @@
 		<input type="number" value="0" name="number" /><br />
 		<?php
 
+			// Put out the right color choices depending on which type of hat.
 			if ($headwearType == "tophat") {
 				echo "
 				<select name=\"color\">
-					<option name=\"color\" value=\"yellow\">Yellow</option>
-					<option name=\"color\" value=\"black\">Black</option>
-					<option name=\"color\" value=\"red\">Red</option>
-					<option name=\"color\" value=\"green\">Green</option>
-					<option name=\"color\" value=\"blue\">Blue</option>
-					<option name=\"color\" value=\"white\">White</option>
+					<option name=\"color\" value=\"yellow\"> Yellow	</option>
+					<option name=\"color\" value=\"black\">Black	</option>
+					<option name=\"color\" value=\"red\">Red	</option>
+					<option name=\"color\" value=\"green\">Green	</option>
+					<option name=\"color\" value=\"blue\">Blue	</option>
+					<option name=\"color\" value=\"white\">White	</option>
 				</select><br />
-				";	
+				";
 			}elseif ($headwearType == "cap") {
 				echo "
 				<select name=\"color\">
-					<option name=\"color\" value=\"yellow\">Yellow</option>
-					<option name=\"color\" value=\"black\">Black</option>
-					<option name=\"color\" value=\"red\">Red</option>
-					<option name=\"color\" value=\"green\">Green</option>
-					<option name=\"color\" value=\"blue\">Blue</option>
-					<option name=\"color\" value=\"white\">White</option>
-					<option name=\"color\" value=\"pink\">Pink</option>
-					<option name=\"color\" value=\"cyan\">Cyan</option>
-					<option name=\"color\" value=\"purple\">Purple</option>
-					<option name=\"color\" value=\"orange\">Orange</option>
-					<option name=\"color\" value=\"tan\">Tan</option>
+					<option name=\"color\" value=\"yellow\">Yellow	</option>
+					<option name=\"color\" value=\"black\">Black	</option>
+					<option name=\"color\" value=\"red\">Red	</option>
+					<option name=\"color\" value=\"green\">Green	</option>
+					<option name=\"color\" value=\"blue\">Blue	</option>
+					<option name=\"color\" value=\"white\">White	</option>
+					<option name=\"color\" value=\"pink\">Pink	</option>
+					<option name=\"color\" value=\"cyan\">Cyan	</option>
+					<option name=\"color\" value=\"purple\">Purple	</option>
+					<option name=\"color\" value=\"orange\">Orange	</option>
+					<option name=\"color\" value=\"tan\">Tan	</option>
 				</select><br />
 				";
 			}
